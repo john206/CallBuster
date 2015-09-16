@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.irrelevant.callbuster"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.PROCESS_INCOMING_CALLS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17" />
+
+
+
+    <application
+        android:name=".ListUtility"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:persistent="true"
+        >
+
+
+
+        <receiver android:name=".IncomingCallReceiver" >
+            <intent-filter android:priority="999" >
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+
+
+
+        <activity
+                android:name=".MainActivity"
+                android:label="@string/app_name"
+                android:screenOrientation="portrait">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".BlacklistActivity"
+                android:label="@string/title_activity_blacklist"
+                android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+                android:name=".WhitelistActivity"
+                android:label="@string/title_activity_whitelist"
+                android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+                android:name=".ManageBlacklistActivity"
+                android:label="@string/title_activity_manage_blacklist"
+                android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+                android:name=".ManageWhitelistActivity"
+                android:label="@string/title_activity_manage_whitelist"
+                android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
+                android:name=".LogActivity"
+                android:label="@string/title_activity_log"
+                android:screenOrientation="portrait">
+        </activity>
+
+
+    </application>
+
+</manifest>
